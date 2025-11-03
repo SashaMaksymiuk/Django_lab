@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'app_blog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app_blog/css/main.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-3">
+      <a class="navbar-brand" href="{% url 'home' %}">Мій блог</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategories" aria-controls="navbarCategories" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCategories">
+        <ul class="navbar-nav mr-auto">
+          {% for cat in categories %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ cat.get_absolute_url }}">{{ cat.category }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+    <div class="container-lg py-4">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'app_blog/js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'app_blog/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

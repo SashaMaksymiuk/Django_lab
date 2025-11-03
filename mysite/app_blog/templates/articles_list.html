@@ -1,26 +1,27 @@
-<h1>Статті</h1>
-<ul>
+{% extends "base.html" %}
+{% block content %}
+<h2>Всі статті</h2>
+<div class="row">
   {% for article in items %}
-    <li>
-      <h2>
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-      </h2>
-      <b>Категорія:</b>
-      {% if article.category %}
-        <a href="{{ article.category.get_absolute_url }}">{{ article.category.category }}</a>
-      {% else %}
-        Без категорії
-      {% endif %}
-      <br>
-      <b>Слаг:</b> {{ article.slug }}
-      <br>
-      <b>Дата:</b> {{ article.pub_date|date:"d.m.Y" }}
-      <br>
-      <b>Опис:</b> {{ article.description|truncatewords_html:25|linebreaks }}
-      <br>
-      {% if article.images.all %}
-        <img src="{{ article.images.first.image.url }}" alt="фото" style="max-height: 80px;">
-      {% endif %}
-    </li>
+    <div class="col-md-6">
+      <div class="article-block mb-3">
+        <h5>
+          <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        </h5>
+        <p>
+          Категорія:
+          {% if article.category %}
+            <a href="{{ article.category.get_absolute_url }}">{{ article.category.category }}</a>
+          {% else %}Без категорії{% endif %}
+          <br>
+          <b>Слаг:</b> {{ article.slug }}<br>
+          <b>Дата:</b> {{ article.pub_date|date:"d.m.Y" }}
+          <br>
+          <b>Опис:</b>
+          {{ article.description|truncatewords_html:25|linebreaks }}
+        </p>
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:700,400&display=swap');
+
+body {
+  background-image: url('../img/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+h1, .display-5 {
+  color: #09b3bf;
+  font-family: 'Ubuntu', sans-serif;
+  text-shadow: 1px 1px 0 #222;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin-bottom: 18px;
+}
+
+.navbar-brand {
+  margin-left: 24px !important;
+}
+
+
+
+.article-block {
+  background: rgba(255,255,255,0.92);
+  color: #212121;
+  font-family: 'Ubuntu', sans-serif;
+  box-shadow: 0 7px 16px #ccc;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.link-primary {
+  color: #09b3bf !important;
+  font-weight: 700;
+}
+
+.card-title {
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 1.1em;
+}
+
+.alert-info {
+  background: rgba(0,123,255,0.12);
+  color: #125991;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .container-lg { padding-left: 5px; padding-right: 5px; }
+  h1, .display-5 { font-size: 1.1em; }
+  .article-block { padding: 10px; margin: 6px; }
+  .navbar { font-size: 0.95em; }
+}
